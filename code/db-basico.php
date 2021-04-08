@@ -1,1 +1,1 @@
-echo "Este es el archivo Basico BD";
+echo "Este es el archivo Básico BD";
