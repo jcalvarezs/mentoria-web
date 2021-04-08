@@ -1,0 +1,1 @@
+echo "Este es el archivo Basico BD";
