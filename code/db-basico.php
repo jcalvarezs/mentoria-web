@@ -1,6 +1,6 @@
 <?php
 
-$dbname = "registro2222222"; //modicair por valor no valido y comprobar try
+$dbname = "registro"; //modicair por valor no valido y comprobar try
 $dbuser = "registro-user";
 $dbpassword = "registro-user1";
 
