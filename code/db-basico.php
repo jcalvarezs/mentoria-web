@@ -6,11 +6,8 @@ $dbpassword = "registro-user1";
 
 try {$dsn = "mysql:host=localhost;dbname=$dbname";
 
-
     //objeto de conexion a la bd
     $db = new PDO($dsn, $dbuser, $dbpassword);
-
-    echo "coneccion correcta";
 }catch(PDOException $e){
     echo $e->getMessage();
 
@@ -40,4 +37,4 @@ $stmt->execute();
 $id=3;
 $stmt = $db->prepare("DELETE FROM users where id=:id");
 $stmt->bindParam(':id',$id);
-$stmt->execute(); *7
+$stmt->execute(); */
