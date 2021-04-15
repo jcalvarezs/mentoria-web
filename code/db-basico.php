@@ -23,10 +23,10 @@ VALUES
 // stament
 $stmt = $db->prepare($sql);
 
-$full_name = 'Raul Marin4';
-$email = 'raul.marin@segic.usach.cl4';
-$user_name = "raul.marin4";
-$password = password_hash("user4", PASSWORD_DEFAULT);
+$full_name = 'juan perez';
+$email = 'juan perez@segic.usach.cl4';
+$user_name = "juan perez";
+$password = password_hash("juan perez1", PASSWORD_DEFAULT);
 
 $stmt->bindParam(':full_name', $full_name);
 $stmt->bindParam(':email', $email);
