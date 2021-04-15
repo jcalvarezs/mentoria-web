@@ -12,7 +12,7 @@ try {$dsn = "mysql:host=localhost;dbname=$dbname";
     echo $e->getMessage();
 
 }
-<<<<<<< HEAD
+ 
    
 // Preparar la INSERT
 $sql ="INSERT INTO users
