@@ -45,7 +45,7 @@ $stmt = $db->prepare($sql);
 // no se pueden pasar valores directos, solo referencias
 $stmt->bindParam(':id', $id);
 $stmt->execute();
-*/
+
 // Preparar la INSERT Masivo
 $users = [
     [
@@ -81,3 +81,32 @@ $stmt->bindParam(':password', $password);
                        
 $stmt->execute();
 }
+*/
+
+// Preparar la SELECT para mostrar 
+$sql ="SELECT id, full_name, user_name, email
+       FROM users";
+// stament
+$stmt = $db->prepare($sql);
+
+$stmt->execute();
+
+
+$users = $stmt -> fetchAll(PDO::FETCH_ASSOC);
+
+echo '<table border="1">
+        <tr>
+            <th>ID</th>
+            <th>NOMBRE COMPLETO</th>
+            <th>USUARIO</th>
+            <th>CORREO</th>
+        </th>';
+            
+foreach ($users as $user) {
+    echo '<tr>
+            <th>' .$user['id']. '</th>
+            <th>' .$user['full_name']. '</th>
+            <th>' .$user['user_name']. '</th>
+            <th>' .$user['email']. '</th>
+          </th>';
+};
