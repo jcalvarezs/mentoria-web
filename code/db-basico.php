@@ -34,7 +34,7 @@ $stmt->bindParam(':user_name', $user_name);
 $stmt->bindParam(':password', $password);
 
 $stmt->execute();
-*/
+
 // Preparar la DELETE
 $id = 6;
 $sql ="DELETE FROM users
@@ -45,3 +45,39 @@ $stmt = $db->prepare($sql);
 // no se pueden pasar valores directos, solo referencias
 $stmt->bindParam(':id', $id);
 $stmt->execute();
+*/
+// Preparar la INSERT Masivo
+$users = [
+    [
+        'name'=>'miguel', 
+        'email'=>'miguel.p@usach', 
+        'username'=>'miguel', 
+        'password'=>'miguel123'
+    ],
+    [
+        'name'=>'andrea', 
+        'email'=>'andrea.a@usach', 
+        'username'=>'andrea', 
+        'password'=>'andrea123'
+    ]
+];
+
+
+$sql ="INSERT INTO users
+(full_name, email, user_name, password)
+VALUES
+(:full_name, :email, :user_name, :password)";
+
+// stament
+$stmt = $db->prepare($sql);
+
+foreach ($users as $user){   
+
+$stmt->bindParam(':full_name', $user['name']);
+$stmt->bindParam(':email', $user['email']);
+$stmt->bindParam(':user_name', $user['username']);
+$password = password_hash($user['password'], PASSWORD_DEFAULT);
+$stmt->bindParam(':password', $password);
+                       
+$stmt->execute();
+}
