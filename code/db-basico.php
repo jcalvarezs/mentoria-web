@@ -13,7 +13,7 @@ try {$dsn = "mysql:host=localhost;dbname=$dbname";
 
 }
  
-   
+  /* 
 // Preparar la INSERT
 $sql ="INSERT INTO users
 (full_name, email, user_name, password)
@@ -33,4 +33,15 @@ $stmt->bindParam(':email', $email);
 $stmt->bindParam(':user_name', $user_name);
 $stmt->bindParam(':password', $password);
 
+$stmt->execute();
+*/
+// Preparar la DELETE
+$id = 2;
+$sql ="DELETE FROM users
+WHERE id = :id";
+
+// stament
+$stmt = $db->prepare($sql);
+// no se pueden pasar valores directos, solo referencias
+$stmt->bindParam(':id', $id);
 $stmt->execute();
