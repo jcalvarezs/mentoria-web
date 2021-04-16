@@ -9,6 +9,7 @@ try {$dsn = "mysql:host=localhost;dbname=$dbname";
 
     //objeto de conexion a la bd
     $db = new PDO($dsn, $dbuser, $dbpassword);
+    return $db;
 }catch(PDOException $e){
     echo $e->getMessage();
 }
