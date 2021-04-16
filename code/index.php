@@ -12,8 +12,8 @@
 		$email= $_POST["email"];
 		$username= $_POST["username"];
 		$pass= $_POST["pass"];
-		$repeatPass= $_POST["repeat-pass"];
-		$rememberMe= $_POST["remember-me"];
+		//$repeatPass= $_POST["repeat-pass"];
+		//$rememberMe= $_POST["remember-me"];
 		
 		//preparar consulta
 		$sql = "INSERT INTO users
@@ -22,11 +22,11 @@
 				(:full_name, :email, :user_name, :password);";
 
 		 $stmt = $db->prepare($sql);
-
+		 $pass = password_hash($pass, PASSWORD_DEFAULT);
 		$stmt->bindParam(':full_name',$name);
 		$stmt->bindParam(':email',$email);
 		$stmt->bindParam(':user_name',$username);
-		$stmt->bindParam(':password',password_hash($pass, PASSWORD_DEFAULT));
+		$stmt->bindParam(':password',$pass);
 
 		$stmt->execute();
 		echo "Registro realizado";
