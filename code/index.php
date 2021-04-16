@@ -12,8 +12,8 @@
 		$email= $_POST["email"];
 		$username= $_POST["username"];
 		$pass= $_POST["pass"];
-		//$repeatPass= $_POST["repeat-pass"];
-		//$rememberMe= $_POST["remember-me"];
+		$repeatPass= $_POST["repeat-pass"];
+		$rememberMe= $_POST["remember-me"];
 		
 		//preparar consulta
 		$sql = "INSERT INTO users
