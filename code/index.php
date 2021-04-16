@@ -3,7 +3,7 @@
 // codigo php
 echo "hola Mundo"
 
->?
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
