@@ -33,7 +33,6 @@ $stmt = $db->prepare($sql);
 	echo "Registro almacenado";
 //}
 
-
 }
 else{
 	echo "no se ha enviado la informacion";
@@ -73,11 +72,6 @@ $valido =1;
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
-<style>
-.ms-from{
-
-}
-</style>
 
 </head>
 <body style="background-color: #999999;">
@@ -94,12 +88,7 @@ $valido =1;
 
 					<?php if ($valido== 1):?>'
 					<p> class "msg-form" este es un texto controlado desde PHP<p>
-					<?php else; ?>
-
 					<?php endif; ?>
-
-					 
-
 
 					<div class="wrap-input100 validate-input" data-validate="Name is required">
 						<span class="label-input100">Full Name</span>
