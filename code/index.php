@@ -92,7 +92,7 @@ else{
 					</span>
 
 					<?php if ($valido== 1):?>
-					<p class ="msg-form" ><? $message; ?></p>
+					<p class ="msg-form"> este es un texto controlado por PHP</p>
 					<?php endif; ?>
 
 					<div class="wrap-input100 validate-input" data-validate="Name is required">
