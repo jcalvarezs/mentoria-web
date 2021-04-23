@@ -1,9 +1,13 @@
 <?php
-// codigo PHP
+
+// PDO
 require "util/db.php";
-$db = connectDB();
+
+$valido =0;
 
 if (isset($_POST["sign-up-button"])){
+// se menvió formulario
+	$db = connectDB();
 
 	$name = $_POST["name"];
 	$email = $_POST["email"];
@@ -18,7 +22,6 @@ $sql ="INSERT INTO users
 			(:full_name, :email, :user_name, :password)";
 
 $stmt = $db->prepare($sql);
-
 
     $stmt->bindParam(':full_name', $name);
     $stmt->bindParam(':email', $email);
