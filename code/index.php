@@ -13,14 +13,12 @@ if (isset($_POST["sign-up-button"])){
 	$rememberMe = $_POST["remember-me"];
 	
 $sql ="INSERT INTO users
-(full_name, email, user_name, password)
-VALUES
-(:full_name, :email, :user_name, :password)";
+			(full_name, email, user_name, password)
+		VALUES
+			(:full_name, :email, :user_name, :password)";
 
-// stament
 $stmt = $db->prepare($sql);
 
-//foreach ($users as $user){   
 
     $stmt->bindParam(':full_name', $name);
     $stmt->bindParam(':email', $email);
@@ -30,16 +28,15 @@ $stmt = $db->prepare($sql);
                                
     $stmt->execute();
 
-	echo "Registro almacenado";
-//}
-
+	$message= "Registro almacenado";
+	$valido =1;
 }
 else{
-	echo "no se ha enviado la informacion";
-
+	$message= "no se ha enviado la informacion";
+	$valido =1;
 }
 
-$valido =1;
+
 
 ?>
 <!DOCTYPE html>
@@ -92,7 +89,7 @@ $valido =1;
 					</span>
 
 					<?php if ($valido== 1):?>
-					<p class ="msg-form" > este es un texto controlado desde PHP<p>
+					<p class ="msg-form" ><? $message; ?></p>
 					<?php endif; ?>
 
 					<div class="wrap-input100 validate-input" data-validate="Name is required">
