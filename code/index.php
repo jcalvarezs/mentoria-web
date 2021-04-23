@@ -72,7 +72,12 @@ $valido =1;
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
-
+<style>
+                .msg-form{
+                        margin:1em;
+                        color: #004d40
+                }
+</style>
 </head>
 <body style="background-color: #999999;">
 	
@@ -87,7 +92,7 @@ $valido =1;
 					</span>
 
 					<?php if ($valido== 1):?>
-					<p> class "msg-form" este es un texto controlado desde PHP<p>
+					<p> class ".msg-form" > este es un texto controlado desde PHP<p>
 					<?php endif; ?>
 
 					<div class="wrap-input100 validate-input" data-validate="Name is required">
