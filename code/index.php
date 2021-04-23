@@ -86,7 +86,7 @@ $valido =1;
 						Sign Up
 					</span>
 
-					<?php if ($valido== 1):?>'
+					<?php if ($valido== 1):?>
 					<p> class "msg-form" este es un texto controlado desde PHP<p>
 					<?php endif; ?>
 
