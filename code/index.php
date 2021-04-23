@@ -75,7 +75,7 @@ else{
 <style>
                 .msg-form{
                  margin:1em;
-                color: #004d44
+                color: #43a047
                 }
 </style>
 </head>
