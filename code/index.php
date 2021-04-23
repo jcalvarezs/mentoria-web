@@ -32,7 +32,7 @@ $stmt = $db->prepare($sql);
     $stmt->execute();
 
 	$message= "Registro almacenado";
-	$valido =1;
+	$valido =0;
 }
 else{
 	$message= "no se ha enviado la informacion";
@@ -93,6 +93,9 @@ else{
 
 					<?php if ($valido== 1):?>
 					<p class ="msg-form"> este es un texto controlado por PHP</p>
+
+					<?php else: ?>
+					<h1> Soy texto else dentro del else </h1>
 					<?php endif; ?>
 
 					<div class="wrap-input100 validate-input" data-validate="Name is required">
