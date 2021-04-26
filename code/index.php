@@ -78,10 +78,9 @@ $i = 0;
                 </thead>
                 <tbody>
                 <?php foreach ($users as $user): ?>
-                    <?php i = i+1 ?>
+                  //  <?php $i = $i+1 ?>
                     <tr>
-                    <th scope="row">1</th>
-                    <td><?= i ?></td>
+                    <td><?=$i ?></td>
                     <td><?= $user['id'] ?></td>
                     <td><?= $user['full_name'] ?></td>
                     <td><?= $user['user_name'] ?></td>
