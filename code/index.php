@@ -41,10 +41,7 @@ $stmt = $db->prepare($sql);
 	$valido =1;
 		
 }
-	else{
-		$message= "no se ha enviado la informacion";
-		$valido =1;
-	}
+
 
 
 ?>
