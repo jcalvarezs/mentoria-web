@@ -39,12 +39,12 @@ $stmt = $db->prepare($sql);
 
 	$message= "Registro almacenado";
 	$valido =1;
+		
 }
-else{
-	$message= "no se ha enviado la informacion";
-	$valido =1;
-}
-
+	else{
+		$message= "no se ha enviado la informacion";
+		$valido =1;
+	}
 
 
 ?>
