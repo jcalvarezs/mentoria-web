@@ -69,8 +69,8 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <thead>
                     <tr>
                     <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Correo</th>
                     <th scope="col">Acción</th>
                     </tr>
                 </thead>
@@ -80,6 +80,11 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <th scope="row"><?= $user['id'] ?></th>
                     <td><?= $user['full_name'] ?></td>
                     <td><?= $user['email'] ?? 'Sin Correo' ?></td>
+                    <td>
+                     <a href="view.php?v1=<?php echo $user['full_name'] ?>&v2=<?php echo $user['email'] ?>&v3=<?php echo $user['user_name'] ?>><button class="btn btn-pri>
+                     <a href="edit.php?v1=<?php echo $user['full_name'] ?>&v2=<?php echo $user['email'] ?>&v3=<?php echo $user['user_name'] ?>"><button class="btn btn-ou>
+                     <button class="btn btn-sm">Delete</button>
+                    </td>
                     <td>
                     </tr>
                     <?php endforeach; ?>
