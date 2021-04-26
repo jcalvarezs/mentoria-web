@@ -1,8 +1,9 @@
-
-
-
 <?php
+session_start();
 
+if (!isset($_SESSION['nombre'])){
+    header("location: index.php");
+}
 require "util/db.php";
 $db = connectDB();
 
@@ -13,7 +14,7 @@ $sql = "SELECT * FROM users";
 $stmt = $db->prepare($sql);
 $stmt->execute();
 $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
+$i = 0;
 ?>
 
 <!doctype html>
@@ -28,7 +29,7 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
 
-    <title>List of User</title>
+    <title>Lista de Usuario</title>
    
   </head>
   <body class="d-flex flex-column h-100">
@@ -43,10 +44,10 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <div class="collapse navbar-collapse" id="navbarsExample09">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="create.html">Create</a>
+                        <a class="nav-link" href="create.php">Create</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">FAQ</a>
@@ -64,11 +65,12 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
         
 <main role="main" class="flex-shrink-0">
         <div class="container">
-        <h1>List of User</h1>
+        <h1>Lista de Usuarios</h1>
             <table class="table table-striped table-hover">
                 <thead>
                     <tr>
                     <th scope="col">#</th>
+                    <th scope="col">id</th>
                     <th scope="col">Nombre</th>
                     <th scope="col">Correo</th>
                     <th scope="col">Acción</th>
@@ -76,13 +78,17 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 </thead>
                 <tbody>
                 <?php foreach ($users as $user): ?>
+                    <?php i = i+1 ?>
                     <tr>
-                    <th scope="row"><?= $user['id'] ?></th>
+                    <th scope="row">1</th>
+                    <td><?= i ?></td>
+                    <td><?= $user['id'] ?></td>
                     <td><?= $user['full_name'] ?></td>
+                    <td><?= $user['user_name'] ?></td>
                     <td><?= $user['email'] ?? 'Sin Correo' ?></td>
                     <td>
                      <a href="view.php?var1=<?php echo $user['full_name'] ?>&var2=<?php echo $user['email'] ?>&var3=<?php echo $user['user_name'] ?>"><button class="btn btn-primary btn-sm">View</button></a>
-                     <a href="edit.php?var1=<?php echo $user['full_name'] ?>&var2=<?php echo $user['email'] ?>&var3=<?php echo $user['user_name'] ?>"><button class="btn btn-outline-primary btn-sm">Edit</button></a>
+                     <a href="edit.php"><button class="btn btn-outline-primary btn-sm">Edit</button></a>
                      <button class="btn btn-sm">Delete</button>
                     </td>
                     <td>
