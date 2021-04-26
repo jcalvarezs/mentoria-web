@@ -7,8 +7,14 @@ $valido =0;
 
 if (isset($_POST["sign-up-button"])){
 // se menvió formulario
-	$db = connectDB();
 
+$dbname = "registro"; //modicair por valor no valido y comprobar try
+$dbuser = "registro-user";
+$dbpassword = "registro-user1";
+
+{$dsn = "mysql:host=localhost;dbname=$dbname";
+
+	
 	$name = $_POST["name"];
 	$email = $_POST["email"];
 	$username = $_POST["username"];
@@ -32,11 +38,11 @@ $stmt = $db->prepare($sql);
     $stmt->execute();
 
 	$message= "Registro almacenado";
-	$valido =0;
+	$valido =1;
 }
 else{
 	$message= "no se ha enviado la informacion";
-	$valido =0;
+	$valido =1;
 }
 
 
@@ -92,10 +98,7 @@ else{
 					</span>
 
 					<?php if ($valido== 1):?>
-					<p class ="msg-form"> este es un texto controlado por PHP</p>
-
-					<?php else: ?>
-					<h1> Soy texto else dentro del else </h1>
+					<p class ="msg-form"> <?= $message	?>  </p>
 					<?php endif; ?>
 
 					<div class="wrap-input100 validate-input" data-validate="Name is required">
