@@ -81,8 +81,6 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <td><?= $user['full_name'] ?></td>
                     <td><?= $user['email'] ?? 'Sin Correo' ?></td>
                     <td>
-                     <a href="view.php?v1=<?php echo $user['full_name'] ?>&v2=<?php echo $use>                     <a href="edit.php?v1=<?php echo $user['full_name'] ?>&v2=<?php echo $use>                     <button class="btn btn-sm">Delete</button>
-                    </td>
                     </tr>
                     <?php endforeach; ?>
                 </tbody>
