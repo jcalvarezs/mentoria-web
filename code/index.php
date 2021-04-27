@@ -1,9 +1,5 @@
 <?php
-session_start();
 
-if (!isset($_SESSION['nombre'])){
-    header("location: index.php");
-}
 require "util/db.php";
 $db = connectDB();
 
@@ -79,10 +75,9 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <?php foreach ($users as $user): ?>
              
                     <tr>
-                    <th scope="row"><?= $i ?></th>
-                    <td><?= $user['id'] ?></td>
+                    <tr>
+                    <th scope="row"><?= $user['id'] ?></th>
                     <td><?= $user['full_name'] ?></td>
-                    <td><?= $user['user_name'] ?></td>
                     <td><?= $user['email'] ?? 'Sin Correo' ?></td>
                     <td>
                      <a href="view.php?var1=<?php echo $user['full_name'] ?>&var2=<?php echo $user['email'] ?>&var3=<?php echo $user['user_name'] ?>"><button class="btn btn-primary btn-sm">View</button></a>
