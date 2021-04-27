@@ -14,7 +14,6 @@ $sql = "SELECT * FROM users";
 $stmt = $db->prepare($sql);
 $stmt->execute();
 $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
-$i = 0;
 ?>
 
 <!doctype html>
@@ -80,7 +79,7 @@ $i = 0;
                 <?php foreach ($users as $user): ?>
              
                     <tr>
-                    <td><?=$i ?></td>
+                    <th scope="row"><?= $i ?></th>
                     <td><?= $user['id'] ?></td>
                     <td><?= $user['full_name'] ?></td>
                     <td><?= $user['user_name'] ?></td>
