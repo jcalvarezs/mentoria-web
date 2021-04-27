@@ -78,7 +78,7 @@ $i = 0;
                 </thead>
                 <tbody>
                 <?php foreach ($users as $user): ?>
-                  //  <?php $i = $i+1 ?>
+             
                     <tr>
                     <td><?=$i ?></td>
                     <td><?= $user['id'] ?></td>
