@@ -10,6 +10,7 @@ $sql = "SELECT * FROM users";
 $stmt = $db->prepare($sql);
 $stmt->execute();
 $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$i=0;
 ?>
 
 <!doctype html>
@@ -80,9 +81,9 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <td><?= $user['full_name'] ?></td>
                     <td><?= $user['email'] ?? 'Sin Correo' ?></td>
                     <td>
-                    <a href="view.php?var1=<?php echo $user['full_name'] ?>&var2=<?php echo $user['email']?? 'Sin Correo' ?>&var3=<?php echo $user['user_name'] ?>"><button class="btn btn-primary btn-sm">View</button></a>
-                     <a href="edit.php"><button class="btn btn-outline-primary btn-sm">Edit</button></a>
-                     <button class="btn btn-sm">Delete</button>
+                        <a href="view.php?var1=<?= $user['id'] ?>"><button class="btn btn-primary btn-sm">Ver</button></a>
+                        <a href="view.php?var1=<?= $user['id'] ?>"><button class="btn btn-outline-primary btn-sm">Edit</button></a>
+                        <a href="view.php?var1=<?= $user['id'] ?>">Borrar</a>
                     </td>
                     <td>
                     </tr>
@@ -101,7 +102,6 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
     </footer>
 
-    
     <script src="assets/js/jquery-3.3.1.slim.min.js"></script>
     <script src="assets/js/popper.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
