@@ -75,20 +75,20 @@ else{
     <main role="main" class="flex-shrink-0">
         <div class="container">
             <h1>Eliminación de Usuario</h1>
-            <form action="" method="POST" action= "delete.php?id=<?= $user['id'] ?>">
+            <form action="" method="POST" action= "delete.php?id=<?= $id  ?>">
                 <div class="form-group">
                     <label for="name">Nombre</label>
-                    <input type="text" class="form-control" id="full_name" name="full_name" value="<?=$user['full_name'] ?>" placeholder="Enter name">
+                    <input type="text" class="form-control" id="full_name" name="full_name" value="<?=$user['full_name'] ?>" placeholder="Enter name" readonly>
                     <small class="form-text text-muted">Help message here.</small>
                 </div>
                 <div class="form-group">
                     <label for="name">Correo</label>
-                    <input type="text" class="form-control" id="email" name="email" value="<?=$user['email'] ?>" placeholder="Enter name">
+                    <input type="text" class="form-control" id="email" name="email" value="<?=$user['email'] ?>" placeholder="Enter name" readonly>
                     <small class="form-text text-muted">Help message here.</small>
                 </div>
                 <div class="form-group">
                     <label for="name">Nombre Usuario</label>
-                    <input type="text" class="form-control" id="user_name" name="user_name"value="<?=$user['user_name'] ?>" placeholder="Enter name">
+                    <input type="text" class="form-control" id="user_name" name="user_name"value="<?=$user['user_name'] ?>" placeholder="Enter name" readonly>
                     <small class="form-text text-muted">Help message here.</small>
                 </div>
                 <button type="submit" class="btn btn-primary"name = "Borrar">Borrar</button>
