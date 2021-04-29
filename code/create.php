@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en" class="h-100">
   <head>
@@ -25,10 +26,10 @@
             <div class="collapse navbar-collapse" id="navbarsExample09">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="create.html">Create</a>
+                        <a class="nav-link" href="create.php">Create</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">FAQ</a>
@@ -49,11 +50,26 @@
             <h1>Create New User</h1>
             <form action="" method="POST">
                 <div class="form-group">
-                    <label for="name">Name</label>
+                    <label for="name">Nombre</label>
                     <input type="text" class="form-control" id="name" placeholder="Enter name">
                     <small class="form-text text-muted">Help message here.</small>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <div class="form-group">
+                    <label for="name">Nombre Usuario</label>
+                    <input type="text" class="form-control" id="name" placeholder="Enter name">
+                    <small class="form-text text-muted">Help message here.</small>
+                </div>
+                <div class="form-group">
+                    <label for="name">Correo</label>
+                    <input type="text" class="form-control" id="name" placeholder="Enter name">
+                    <small class="form-text text-muted">Help message here.</small>
+                </div>
+                <div class="form-group">
+                <label for="name">Correo</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter name">
+                <small class="form-text text-muted">Help message here.</small>
+            </div>
+                <button type="submit" class="btn btn-primary">Crear</button>
             </form>
         </div>
     </main>
