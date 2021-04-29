@@ -6,10 +6,9 @@ $id = $_GET['id'];
 $sqlSelct ="SELECT id, full_name, user_name, email FROM users WHERE id = :id";
 
 // stament
-$sqlSelct = $db->prepare($sqlSelct);
-$sqlSelct->bindParam(':id', $id);
-
-$sqlSelct->execute();
+$stmt1 = $db->prepare($sqlSelct);
+$stmt1->bindParam(':id', $id);
+$stmt1->execute();
 $user = $stmt1 -> fetch();
 
 ?>
@@ -63,9 +62,9 @@ $user = $stmt1 -> fetch();
     <main role="main" class="flex-shrink-0">
         <div class="container">
             <h1>Vista de Usuario</h1>
-            </p> Nombre: <?= $_GET['var1'] ?></p>
-            </p> Email: <?= $_GET['var2'] ?></p>
-            </p> User Name: <?= $_GET['var3'] ?></p>
+            </p> Nombre: <?= $user['full_name'] ?></p>
+            </p> Email: <?= $user['email'] ?></p>
+            </p> User Name: <?= $user['user_name'] ?></p>
         </div>
     </main>
       

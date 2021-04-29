@@ -81,9 +81,9 @@ $i=0;
                     <td><?= $user['full_name'] ?></td>
                     <td><?= $user['email'] ?? 'Sin Correo' ?></td>
                     <td>
-                        <a href="view.php?var1=<?= $user['id'] ?>"><button class="btn btn-primary btn-sm">Ver</button></a>
-                        <a href="view.php?var1=<?= $user['id'] ?>"><button class="btn btn-outline-primary btn-sm">Editar</button></a>
-                        <a href="view.php?var1=<?= $user['id'] ?>">Borrar</a>
+                        <a href="view.php?id=<?= $user['id'] ?>"><button class="btn btn-primary btn-sm">Ver</button></a>
+                        <a href="edit.php?var1=<?= $user['id'] ?>"><button class="btn btn-outline-primary btn-sm">Editar</button></a>
+                        <a href="delete.php?var1=<?= $user['id'] ?>">Borrar</a>
                     </td>
                     <td>
                     </tr>
