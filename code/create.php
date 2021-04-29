@@ -1,4 +1,47 @@
+<?php
 
+// PDO
+require "util/db.php";
+
+$valido =0;
+
+if (isset($_POST["sign-up-button"])){
+// se menvió formulario
+	$db = connectDB();
+
+	$name = $_POST["name"];
+	$email = $_POST["email"];
+	$username = $_POST["username"];
+	$pass = $_POST["pass"];
+	$repeatPass = $_POST["repeat-pass"];
+	$rememberMe = $_POST["remember-me"];
+	$password = password_hash($pass, PASSWORD_DEFAULT);
+
+$sql ="INSERT INTO users
+			(full_name, email, user_name, password)
+		VALUES
+			(:full_name, :email, :user_name, :password)";
+
+$stmt = $db->prepare($sql);
+
+    $stmt->bindParam(':full_name', $name);
+    $stmt->bindParam(':email', $email);
+    $stmt->bindParam(':user_name', $username);
+    $stmt->bindParam(':password', $password);
+                               
+    $stmt->execute();
+
+	$message= "Registro almacenado";
+	$valido =1;
+}
+else{
+	$message= "no se ha enviado la informacion";
+	$valido =1;
+}
+
+
+
+?>
 <!doctype html>
 <html lang="en" class="h-100">
   <head>
@@ -48,25 +91,25 @@
     <main role="main" class="flex-shrink-0">
         <div class="container">
             <h1>Create New User</h1>
-            <form action="" method="POST">
+            <form action="create.php" method="POST">
                 <div class="form-group">
                     <label for="name">Nombre</label>
-                    <input type="text" class="form-control" id="name" placeholder="Enter name">
+                    <input type="text" class="form-control" id="name" placeholder="Ingrese Nombre">
                     <small class="form-text text-muted">Help message here.</small>
                 </div>
                 <div class="form-group">
                     <label for="name">Nombre Usuario</label>
-                    <input type="text" class="form-control" id="name" placeholder="Enter name">
+                    <input type="text" class="form-control" id="email" placeholder="Ingrese Nombre Usuario">
                     <small class="form-text text-muted">Help message here.</small>
                 </div>
                 <div class="form-group">
                     <label for="name">Correo</label>
-                    <input type="text" class="form-control" id="name" placeholder="Enter name">
+                    <input type="text" class="form-control" id="username" placeholder="Ingrese Correo">
                     <small class="form-text text-muted">Help message here.</small>
                 </div>
                 <div class="form-group">
-                <label for="name">Correo</label>
-                <input type="text" class="form-control" id="name" placeholder="Enter name">
+                <label for="name">Password</label>
+                <input type="text" class="form-control" id="pass" placeholder="IngresePassword">
                 <small class="form-text text-muted">Help message here.</small>
             </div>
                 <button type="submit" class="btn btn-primary">Crear</button>
