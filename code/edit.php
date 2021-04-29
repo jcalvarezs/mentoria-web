@@ -1,4 +1,7 @@
 <?php
+
+require "util/db.php";
+$db = connectDB();
 // Preparar la SELECT
 
 $id = $_GET['id'];
