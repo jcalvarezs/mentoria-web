@@ -16,6 +16,7 @@ if (!isset($_POST["Borrar"])){
 }
 else{
 echo "entro ";
+echo $id;
     $sql ="DELETE users WHERE id = :id";
 
     $stmt = $db->prepare($sql);
