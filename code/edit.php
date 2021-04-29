@@ -8,11 +8,9 @@ $id = $_GET['id'];
 $sqlSelct ="SELECT id, full_name, user_name, email FROM users WHERE id = :id";
 
 // stament
-$sqlSelct = $db->prepare($sql1);
-$sqlSelct->bindParam(':id', $id);
-
-$sqlSelct->execute();
-
+$stmt1 = $db->prepare($sqlSelct);
+$stmt1->bindParam(':id', $id);
+$stmt1->execute();
 $user = $stmt1 -> fetch();
 
 ?>
@@ -68,8 +66,18 @@ $user = $stmt1 -> fetch();
             <h1>Edición de Usuario</h1>
             <form action="" method="POST">
                 <div class="form-group">
-                <label for="name">Nombre</label>
+                    <label for="name">Nombre</label>
                     <input type="text" class="form-control" id="name" value="<?$user['full_name'] ?>" placeholder="Enter name">
+                    <small class="form-text text-muted">Help message here.</small>
+                </div>
+                <div class="form-group">
+                    <label for="name">Correo</label>
+                    <input type="text" class="form-control" id="name" value="<?$user['email'] ?>" placeholder="Enter name">
+                    <small class="form-text text-muted">Help message here.</small>
+                </div>
+                <div class="form-group">
+                    <label for="name">Nombre Usuario</label>
+                    <input type="text" class="form-control" id="name" value="<?$user['user_name'] ?>" placeholder="Enter name">
                     <small class="form-text text-muted">Help message here.</small>
                 </div>
                 <button type="submit" class="btn btn-primary"name = "Actualizar">Submit</button>
