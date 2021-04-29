@@ -94,22 +94,22 @@ else{
             <form action="create.php" method="POST">
                 <div class="form-group">
                     <label for="name">Nombre</label>
-                    <input type="text" class="form-control" id="name" placeholder="Ingrese Nombre">
+                    <input type="text" class="form-control" id="name" name = "name" placeholder="Ingrese Nombre">
                     <small class="form-text text-muted">Help message here.</small>
                 </div>
                 <div class="form-group">
                     <label for="name">Nombre Usuario</label>
-                    <input type="text" class="form-control" id="email" placeholder="Ingrese Nombre Usuario">
+                    <input type="text" class="form-control" id="email" name = "email" placeholder="Ingrese Nombre Usuario">
                     <small class="form-text text-muted">Help message here.</small>
                 </div>
                 <div class="form-group">
                     <label for="name">Correo</label>
-                    <input type="text" class="form-control" id="username" placeholder="Ingrese Correo">
+                    <input type="text" class="form-control" id="username" name = "username" placeholder="Ingrese Correo">
                     <small class="form-text text-muted">Help message here.</small>
                 </div>
                 <div class="form-group">
                 <label for="name">Password</label>
-                <input type="text" class="form-control" id="pass" placeholder="IngresePassword">
+                <input type="text" class="form-control" id="pass" name = "pass" placeholder="IngresePassword">
                 <small class="form-text text-muted">Help message here.</small>
             </div>
                 <button type="submit" class="btn btn-primary"name = "crear">Crear</button>
