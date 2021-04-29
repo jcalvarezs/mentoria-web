@@ -29,7 +29,7 @@ else{
     $stmt->bindParam(':id', $id);
                               
     $stmt->execute();
-
+    header("location:index.php");   
 }
 
 ?>
