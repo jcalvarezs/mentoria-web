@@ -67,17 +67,17 @@ $user = $stmt1 -> fetch();
             <form action="" method="POST">
                 <div class="form-group">
                     <label for="name">Nombre</label>
-                    <input type="text" class="form-control" id="name" value="<?$user['full_name'] ?>" placeholder="Enter name">
+                    <input type="text" class="form-control" id="name" value="<?=$user['full_name'] ?>" placeholder="Enter name">
                     <small class="form-text text-muted">Help message here.</small>
                 </div>
                 <div class="form-group">
                     <label for="name">Correo</label>
-                    <input type="text" class="form-control" id="name" value="<?$user['email'] ?>" placeholder="Enter name">
+                    <input type="text" class="form-control" id="name" value="<?=$user['email'] ?>" placeholder="Enter name">
                     <small class="form-text text-muted">Help message here.</small>
                 </div>
                 <div class="form-group">
                     <label for="name">Nombre Usuario</label>
-                    <input type="text" class="form-control" id="name" value="<?$user['user_name'] ?>" placeholder="Enter name">
+                    <input type="text" class="form-control" id="name" value="<?=$user['user_name'] ?>" placeholder="Enter name">
                     <small class="form-text text-muted">Help message here.</small>
                 </div>
                 <button type="submit" class="btn btn-primary"name = "Actualizar">Submit</button>
