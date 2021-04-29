@@ -15,7 +15,7 @@ if (!isset($_POST["Borrar"])){
     $user = $stmt1 -> fetch();
 }
 else{
-
+echo "entro ";
     $sql ="DELETE users WHERE id = :id";
 
     $stmt = $db->prepare($sql);
@@ -75,7 +75,7 @@ else{
     <main role="main" class="flex-shrink-0">
         <div class="container">
             <h1>Eliminación de Usuario</h1>
-            <form action="" method="POST" action= "delete.php?id=<?= $id  ?>">
+            <form action="" method="POST" action= "delete.php?id=<?=$id?>">
                 <div class="form-group">
                     <label for="name">Nombre</label>
                     <input type="text" class="form-control" id="full_name" name="full_name" value="<?=$user['full_name'] ?>" placeholder="Enter name" readonly>
