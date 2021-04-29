@@ -21,7 +21,7 @@ else{
     $stmt = $db->prepare($sql);
     $stmt->bindParam(':id', $id);                         
     $stmt->execute();
-    header("location:index.php");   
+    //header("location:index.php");   
 }
 
 ?>
