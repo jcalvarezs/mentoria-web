@@ -2,15 +2,28 @@
 
 require "util/db.php";
 $db = connectDB();
+$id = $_GET['id'];
+if (!isset($_POST["Borrar"])){
+// Preparar la SELECT
 
-$sql = "SELECT * FROM users";
+    $sqlSelct ="SELECT id, full_name, user_name, email FROM users WHERE id = :id";
 
-//statement
+    // stament
+    $stmt1 = $db->prepare($sqlSelct);
+    $stmt1->bindParam(':id', $id);
+    $stmt1->execute();
+    $user = $stmt1 -> fetch();
+}
+else{
 
-$stmt = $db->prepare($sql);
-$stmt->execute();
-$users = $stmt->fetchAll(PDO::FETCH_ASSOC);
-$i=0;
+    $sql ="DELETE users WHERE id = :id";
+
+    $stmt = $db->prepare($sql);
+    $stmt->bindParam(':id', $id);                         
+    $stmt->execute();
+    header("location:index.php");   
+}
+
 ?>
 
 <!doctype html>
@@ -25,7 +38,7 @@ $i=0;
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
 
-    <title>Lista de Usuario</title>
+    <title>Eliminación de Usuarios</title>
    
   </head>
   <body class="d-flex flex-column h-100">
@@ -39,7 +52,7 @@ $i=0;
     
             <div class="collapse navbar-collapse" id="navbarsExample09">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
@@ -59,37 +72,27 @@ $i=0;
         </nav>
     </div>
         
-<main role="main" class="flex-shrink-0">
+    <main role="main" class="flex-shrink-0">
         <div class="container">
-        <h1>Lista de Usuarios</h1>
-            <table class="table table-striped table-hover">
-                <thead>
-                    <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">id</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Correo</th>
-                    <th scope="col">Acción</th>
-                    </tr>
-                </thead>
-                <tbody>
-                <?php foreach ($users as $user): ?>
-                    <?php $i=$i+1; ?>
-                    <tr>
-                    <th scope="row"><?=$i ?></th>
-                    <td><?= $user['id'] ?></td>
-                    <td><?= $user['full_name'] ?></td>
-                    <td><?= $user['email'] ?? 'Sin Correo' ?></td>
-                    <td>
-                        <a href="view.php?id=<?= $user['id'] ?>"><button class="btn btn-primary btn-sm">Ver</button></a>
-                        <a href="edit.php?id=<?= $user['id'] ?>"><button class="btn btn-outline-primary btn-sm">Editar</button></a>
-                        <a href="delete.php?id=<?= $user['id'] ?>">Borrar</a>
-                    </td>
-                    <td>
-                    </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
+            <h1>Eliminación de Usuario</h1>
+            <form action="" method="POST" action= "delete.php?id=<?= $user['id'] ?>">
+                <div class="form-group">
+                    <label for="name">Nombre</label>
+                    <input type="text" class="form-control" id="full_name" name="full_name" value="<?=$user['full_name'] ?>" placeholder="Enter name">
+                    <small class="form-text text-muted">Help message here.</small>
+                </div>
+                <div class="form-group">
+                    <label for="name">Correo</label>
+                    <input type="text" class="form-control" id="email" name="email" value="<?=$user['email'] ?>" placeholder="Enter name">
+                    <small class="form-text text-muted">Help message here.</small>
+                </div>
+                <div class="form-group">
+                    <label for="name">Nombre Usuario</label>
+                    <input type="text" class="form-control" id="user_name" name="user_name"value="<?=$user['user_name'] ?>" placeholder="Enter name">
+                    <small class="form-text text-muted">Help message here.</small>
+                </div>
+                <button type="submit" class="btn btn-primary"name = "Borrar">Borrar</button>
+            </form>
         </div>
     </main>
       
@@ -102,6 +105,7 @@ $i=0;
         </div>
     </footer>
 
+    
     <script src="assets/js/jquery-3.3.1.slim.min.js"></script>
     <script src="assets/js/popper.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
