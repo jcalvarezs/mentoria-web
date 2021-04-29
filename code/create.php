@@ -31,11 +31,10 @@ $stmt = $db->prepare($sql);
 
 	$message= "Registro almacenado";
 	$valido =1;
+    
+    header("location: index.php");
 }
-else{
-	$message= "no se ha enviado la informacion";
-	$valido =0;
-}
+
 
 
 
