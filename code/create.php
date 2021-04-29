@@ -31,7 +31,7 @@ $stmt = $db->prepare($sql);
 
 	$message= "Registro almacenado";
 	$valido =1;
-    
+
     header("location: index.php");
 }
 
@@ -92,22 +92,22 @@ $stmt = $db->prepare($sql);
                 <div class="form-group">
                     <label for="name">Nombre</label>
                     <input type="text" class="form-control" id="name" name = "name" placeholder="Ingrese Nombre">
-                    <small class="form-text text-muted">Help message here.</small>
+                    <small class="form-text text-muted">Ingrese Nombre usuario Aqui.</small>
                 </div>
                 <div class="form-group">
                     <label for="name">Nombre Usuario</label>
-                    <input type="text" class="form-control" id="email" name = "email"  placeholder="Ingrese Nombre Usuario">
-                    <small class="form-text text-muted">Help message here.</small>
+                    <input type="text" class="form-control" id="email" name = "username"  placeholder="Ingrese Nombre Usuario">
+                    <small class="form-text text-muted">Ingrese Nombre Usuario Aqui.</small>
                 </div>
                 <div class="form-group">
                     <label for="name">Correo</label>
-                    <input type="text" class="form-control" id="username" name = "username"  placeholder="Ingrese Correo">
-                    <small class="form-text text-muted">Help message here.</small>
+                    <input type="text" class="form-control" id="username" name = "email"  placeholder="Ingrese Correo">
+                    <small class="form-text text-muted">Ingrese Correo Aqui.</small>
                 </div>
                 <div class="form-group">
                 <label for="name">Password</label>
                 <input type="text" class="form-control" id="pass" name = "pass"  placeholder="IngresePassword">
-                <small class="form-text text-muted">Help message here.</small>
+                <small class="form-text text-muted">ingrese password Aqui.</small>
             </div>
                 <button type="submit" class="btn btn-primary"name = "crear">Crear</button>
             </form>
