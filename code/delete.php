@@ -15,14 +15,13 @@ if (!isset($_POST["Borrar"])){
     $user = $stmt1 -> fetch();
 }
 else{
-echo "entro ";
-echo $id;
-    $sql ="DELETE users WHERE id = :id";
+
+    $sql ="DELETE FROM users WHERE id = :id";
 
     $stmt = $db->prepare($sql);
     $stmt->bindParam(':id', $id);                         
     $stmt->execute();
-    //header("location:index.php");   
+    header("location:index.php");   
 }
 
 ?>
