@@ -2,16 +2,35 @@
 
 require "util/db.php";
 $db = connectDB();
+$id = $_GET['id'];
+if (!isset($_POST["Actualizar"])){
 // Preparar la SELECT
 
-$id = $_GET['id'];
-$sqlSelct ="SELECT id, full_name, user_name, email FROM users WHERE id = :id";
+    $sqlSelct ="SELECT id, full_name, user_name, email FROM users WHERE id = :id";
 
-// stament
-$stmt1 = $db->prepare($sqlSelct);
-$stmt1->bindParam(':id', $id);
-$stmt1->execute();
-$user = $stmt1 -> fetch();
+    // stament
+    $stmt1 = $db->prepare($sqlSelct);
+    $stmt1->bindParam(':id', $id);
+    $stmt1->execute();
+    $user = $stmt1 -> fetch();
+}
+else{
+    $name = $_POST["full_name"];
+	$email = $_POST["email"];
+	$username = $_POST["user_name"];
+
+    $sql ="UPDATE users SET full_name =:full_name, email=:email , user_name =:user_name
+		        WHERE id = :id";
+
+    $stmt = $db->prepare($sql);
+    $stmt->bindParam(':full_name', $name);
+    $stmt->bindParam(':email', $email);
+    $stmt->bindParam(':user_name', $username);
+    $stmt->bindParam(':id', $id);
+                              
+    $stmt->execute();
+
+}
 
 ?>
 
@@ -64,23 +83,23 @@ $user = $stmt1 -> fetch();
     <main role="main" class="flex-shrink-0">
         <div class="container">
             <h1>Edición de Usuario</h1>
-            <form action="" method="POST">
+            <form action="" method="POST" action= "edit.php?id=<?= $user['id'] ?>">
                 <div class="form-group">
                     <label for="name">Nombre</label>
-                    <input type="text" class="form-control" id="name" value="<?=$user['full_name'] ?>" placeholder="Enter name">
+                    <input type="text" class="form-control" id="full_name" name="full_name" value="<?=$user['full_name'] ?>" placeholder="Enter name">
                     <small class="form-text text-muted">Help message here.</small>
                 </div>
                 <div class="form-group">
                     <label for="name">Correo</label>
-                    <input type="text" class="form-control" id="name" value="<?=$user['email'] ?>" placeholder="Enter name">
+                    <input type="text" class="form-control" id="email" name="email" value="<?=$user['email'] ?>" placeholder="Enter name">
                     <small class="form-text text-muted">Help message here.</small>
                 </div>
                 <div class="form-group">
                     <label for="name">Nombre Usuario</label>
-                    <input type="text" class="form-control" id="name" value="<?=$user['user_name'] ?>" placeholder="Enter name">
+                    <input type="text" class="form-control" id="user_name" name="user_name"value="<?=$user['user_name'] ?>" placeholder="Enter name">
                     <small class="form-text text-muted">Help message here.</small>
                 </div>
-                <button type="submit" class="btn btn-primary"name = "Actualizar">Submit</button>
+                <button type="submit" class="btn btn-primary"name = "Actualizar">Actualizar</button>
             </form>
         </div>
     </main>
