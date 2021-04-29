@@ -5,7 +5,7 @@ require "util/db.php";
 
 $valido =0;
 
-if (isset($_POST["sign-up-button"])){
+if (isset($_POST["crear"])){
 // se menvió formulario
 	$db = connectDB();
 
@@ -112,7 +112,7 @@ else{
                 <input type="text" class="form-control" id="pass" placeholder="IngresePassword">
                 <small class="form-text text-muted">Help message here.</small>
             </div>
-                <button type="submit" class="btn btn-primary">Crear</button>
+                <button type="submit" class="btn btn-primary"name = "crear">Crear</button>
             </form>
         </div>
     </main>
