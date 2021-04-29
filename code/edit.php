@@ -1,3 +1,19 @@
+<?php
+// Preparar la SELECT
+
+$id = $_GET['id'];
+$sqlSelct ="SELECT id, full_name, user_name, email FROM users WHERE id = :id";
+
+// stament
+$sqlSelct = $db->prepare($sql1);
+$sqlSelct->bindParam(':id', $id);
+
+$sqlSelct->execute();
+
+$user = $stmt1 -> fetch();
+
+?>
+
 <!doctype html>
 <html lang="en" class="h-100">
   <head>
@@ -10,7 +26,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
 
-    <title>List of User</title>
+    <title>Edición de Usuarios</title>
    
   </head>
   <body class="d-flex flex-column h-100">
@@ -25,10 +41,10 @@
             <div class="collapse navbar-collapse" id="navbarsExample09">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="create.html">Create</a>
+                        <a class="nav-link" href="create.php">Create</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">FAQ</a>
@@ -46,14 +62,14 @@
         
     <main role="main" class="flex-shrink-0">
         <div class="container">
-            <h1>Edit User</h1>
+            <h1>Edición de Usuario</h1>
             <form action="" method="POST">
                 <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" class="form-control" id="name" value="Nama saya Pisyek" placeholder="Enter name">
+                <label for="name">Nombre</label>
+                    <input type="text" class="form-control" id="name" value="<?$user['full_name'] ?>" placeholder="Enter name">
                     <small class="form-text text-muted">Help message here.</small>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary"name = "Actualizar">Submit</button>
             </form>
         </div>
     </main>

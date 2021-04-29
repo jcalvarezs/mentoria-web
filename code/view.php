@@ -1,3 +1,19 @@
+<?php  
+
+// Preparar la Select inicial
+
+$id = $_GET['id'];
+$sqlSelct ="SELECT id, full_name, user_name, email FROM users WHERE id = :id";
+
+// stament
+$sqlSelct = $db->prepare($sqlSelct);
+$sqlSelct->bindParam(':id', $id);
+
+$sqlSelct->execute();
+$user = $stmt1 -> fetch();
+
+?>
+
 <!doctype html>
 <html lang="en" class="h-100">
   <head>
