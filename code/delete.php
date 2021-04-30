@@ -21,7 +21,11 @@ else{
     $stmt = $db->prepare($sql);
     $stmt->bindParam(':id', $id);                         
     $stmt->execute();
-    header("location:index.php");   
+    header("location:index.php");  
+    
+    session_start();
+    $_SESSION["msg-delete"] = "Registro eliminado correctamente";
+    header("location: index.php");
 }
 
 ?>

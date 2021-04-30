@@ -5,12 +5,19 @@ $db = connectDB();
 
 $sql = "SELECT * FROM users";
 
-//statement
-
 $stmt = $db->prepare($sql);
 $stmt->execute();
 $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $i=0;
+
+session_start();
+If(isset($_SESSION["msg-delete"])){
+    $msg = $_SESSION["msg-delete"];
+    //limpia variable de session
+   // unset($_SESSION["msg-delete"]);
+    // también limpia variable de sesion
+    //$_SESSION["msg-delete"]="";
+}
 ?>
 
 <!doctype html>
@@ -29,7 +36,11 @@ $i=0;
    
   </head>
   <body class="d-flex flex-column h-100">
-    
+    <!-- Implementa mensaje para eliminación-->
+        <?php if (isset($msg)): ?>
+            <p><?= $msg ?></p>
+        <?php endif; ?>
+    <!-------------->
     <div class="container pt-4 pb-4">
         <nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
             <a class="navbar-brand" href="#">HTML CRUD Template</a>
