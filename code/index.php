@@ -14,7 +14,7 @@ session_start();
 If(isset($_SESSION["msg-delete"])){
     $msg = $_SESSION["msg-delete"];
     //limpia variable de session
-   // unset($_SESSION["msg-delete"]);
+    unset($_SESSION["msg-delete"]);
     // también limpia variable de sesion
     //$_SESSION["msg-delete"]="";
 }
