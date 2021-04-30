@@ -33,12 +33,17 @@ If(isset($_SESSION["msg-delete"])){
     <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
 
     <title>Lista de Usuario</title>
-   
+    <style>
+                .msg-form{
+                 margin:1em;
+                color: #43a047
+                }
+    </style>
   </head>
   <body class="d-flex flex-column h-100">
     <!-- Implementa mensaje para eliminación-->
         <?php if (isset($msg)): ?>
-            <p><?= $msg ?></p>
+            <p class ="msg-form"><?= $msg ?></p>
         <?php endif; ?>
     <!-------------->
     <div class="container pt-4 pb-4">
