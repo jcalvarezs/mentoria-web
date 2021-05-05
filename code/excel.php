@@ -34,5 +34,5 @@ foreach($users as $key => $user) {
     $sheet->setCellValue('C'.$llave, $user['email']);
     $sheet->setCellValue('D'.$llave, $user['user_name']);*/
     $sheet->setCellValueByColumnAndRow(1, $llave, $user['id']);
-    $sheet->setCellValueByColumnAndRow(2, $llave, $user['full_name']
+    $sheet->setCellValueByColumnAndRow(2, $llave, $user['full_name']);
 }
