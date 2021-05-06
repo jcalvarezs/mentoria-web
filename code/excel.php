@@ -36,3 +36,8 @@ foreach($users as $key => $user) {
     $sheet->setCellValueByColumnAndRow(1, $llave, $user['id']);
     $sheet->setCellValueByColumnAndRow(2, $llave, $user['full_name']);
 }
+
+$writer = new Xlsx($spreadsheet);
+header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+header('Content-Disposition: attachment; filename="Users.xlsx"');
+$writer->save('php://output');
