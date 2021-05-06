@@ -11,7 +11,7 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
   //Exportar a excel
 
 //require 'vendor/autoload.php';
-require ''../../test/vendor/autoload.php';
+require '../../test/vendor/autoload.php';
 
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
