@@ -4,6 +4,7 @@ class Request
 {
     public function getpath()
     {
+        
         $path = $_SERVER['REQUEST_URI']?? '/';
         $position = strpos($path, '?');
 

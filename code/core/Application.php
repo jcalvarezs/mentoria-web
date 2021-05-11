@@ -4,7 +4,6 @@ namespace app\core;
 
 class Application{
     public Request $request;
-
     public Router $router;
 
     public function __construct()
