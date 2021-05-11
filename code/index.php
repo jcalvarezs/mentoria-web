@@ -6,11 +6,11 @@ use app\core\Application;
 
 $app = new Application();
 
-$app->$router->get('/', function(){
+$app->router->get('/', function(){
     return "Hola Mundo";
 });
 
-$app->$router->get('/contact', function(){
+$app->router->get('/contact', function(){
     return "Contact";
 });
 
