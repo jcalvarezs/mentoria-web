@@ -18,18 +18,20 @@ class Router
 
     public function resolve()
     {
-
         $path= $this->request->getPath();
         $method= $this->request->getMethod();
 
         $callback = $this->routes[$method][$path] ?? false;
+
+        var_dump($path);
+        var_dump($method);
+        /*
         if ($callback === false)
         {
             echo "Not Found";
             exit;
         }
-        echo call_user_func($callback);
-
+        echo call_user_func($callback);*/
     }
 
 }
