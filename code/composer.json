@@ -1,0 +1,17 @@
+{
+    "name": "jcalvarez/phpmvc-framework",
+    "authors": [
+        {
+            "name": "JC alvarez",
+            "email": "juan.alvarez.s@segic.usach.cl"
+        }
+    ],
+
+    "autoload":{
+        "psr-4": {
+            "app\\": "./"
+        }
+    },
+    "require": {}
+}
+    
