@@ -3,9 +3,9 @@
 namespace app\core;
 
 class Application{
-    public Request $request;
     public Router $router;
-
+    public Request $request;
+    
     public function __construct()
     {
         $this->request = new Request();
