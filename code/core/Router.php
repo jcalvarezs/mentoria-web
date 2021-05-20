@@ -28,10 +28,10 @@ class Router
 
         if ($callback === false)
         {
-            echo "Not Found";
+            return "Not Found";
             exit;
         }
-        echo call_user_func($callback);
+        return call_user_func($callback);
     }
 
 }
