@@ -40,5 +40,5 @@ class Router
     {
         include_once __DIR__ ."/../views/$view.php";
     }
-    }
+    
 }
