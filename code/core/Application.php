@@ -9,7 +9,7 @@ class Application{
     
     public function __construct($rootpath)
     {
-        seft::$ROOT_DIR = $rootpath;
+        self::$ROOT_DIR = $rootpath;
         $this->request = new Request();
         $this->router = new Router($this->request);
     }
