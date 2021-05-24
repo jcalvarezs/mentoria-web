@@ -51,7 +51,7 @@ class Router
         return ob_get_clean();
     }
 
-    public function renderOnlyView($view);
+    public function renderOnlyView($view)
     {
         od_start();
         include_once Application::$ROOT_DIR ."/views/$view.php";
