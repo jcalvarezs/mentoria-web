@@ -9,7 +9,7 @@ echo dirname(__DIR__);
 
 $app = new Application(dirname(__DIR__));
 
-$app->router->get('/public', 'home');
+$app->router->get('/', 'home');
 
 $app->router->get('/contact', 'contact');
 
