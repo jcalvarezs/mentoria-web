@@ -1,21 +1,27 @@
 <?php
 namespace app\core;
 
+
 class Router
 {
     public Request $request;
+    public Response $response;
     protected array $routes = [];
 
-    public function __construct(\app\core\Request $request )
+    public function __construct(\app\core\Request $request,Response $response  )
     {
         $this-> request =$request;
+        $this-> response =$response;
     }
 
     public function get($path, $callback)
     {
         $this->routes['get'][$path] =$callback;
     }
-
+    public function post($path, $callback)
+    {
+        $this->routes['post'][$path] =$callback;
+    }
     public function resolve()
     {
         $path= $this->request->getPath();
@@ -27,7 +33,10 @@ class Router
         var_dump($method);*/
 
         if ($callback === false){
-            return "Not Found";  
+            //Application::$app->response->setStausCode(404)
+            $this->response->setStausCode(404)
+           // return "Not Found";  
+           return $this->renderView("_404");
         }
 
         if (is_string($callback)){
@@ -36,6 +45,15 @@ class Router
         }
         return call_user_func($callback);
     }
+    public function renderView($viewsContent)
+    {
+        $layoutContent = $this->layoutContent();
+        $viewsContent= $this->renderOnlyView($view);
+    
+        return str_replace('{{content}}',$viewsContent,$layoutContent );
+
+    }
+
     public function renderView($view)
     {
         $layoutContent = $this->layoutContent();
