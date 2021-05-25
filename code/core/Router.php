@@ -8,7 +8,7 @@ class Router
     public Response $response;
     protected array $routes = [];
 
-    public function __construct(\app\core\Request $request,Response $response  )
+    public function __construct(Request $request,Response $response  )
     {
         $this-> request =$request;
         $this-> response =$response;
@@ -34,7 +34,7 @@ class Router
 
         if ($callback === false){
             //Application::$app->response->setStausCode(404)
-            $this->response->setStausCode(404)
+            $this->response->setStatusCode(404);
            // return "Not Found";  
            return $this->renderView("_404");
         }
@@ -45,13 +45,10 @@ class Router
         }
         return call_user_func($callback);
     }
-    public function renderView($viewsContent)
+    public function renderContent($viewsContent)
     {
-        $layoutContent = $this->layoutContent();
-        $viewsContent= $this->renderOnlyView($view);
-    
-        return str_replace('{{content}}',$viewsContent,$layoutContent );
-
+        $layoutContent = $this->layoutContent();    
+        return str_replace('{{content}}',$viewsContent,$layoutContent);
     }
 
     public function renderView($view)
