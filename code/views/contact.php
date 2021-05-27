@@ -7,7 +7,7 @@
   </div>
 
   <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <label for="exampleInputPassword1" class="form-label">Email</label>
     <input type="email" name ="email" class="form-control">
   </div>
 
@@ -23,5 +23,5 @@
   </div>
 
 
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-primary">Send</button>
 </form>
