@@ -1,10 +1,10 @@
 <?php
 
-namespace app
+namespace app\core;
 
-use app\core\Application;
 
-/core;
-class controlller{
-    return  application::$app->router->renderView('home');
+class controlller
+{
+public function render($view)
+    return  application::$app->router->renderView($view);
 }
