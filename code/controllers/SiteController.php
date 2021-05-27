@@ -1,18 +1,18 @@
 <?php
-namespace app/controllers;
-app/core/controller;
+namespace app\controllers;
+use app\core\controller;
 
 class SiteController extends controller
 {
     public function home()
     {
-    application::$app->router->renderView('home');
+//application::$app->router->renderView('home');
     return $this->render('home');
     }
 
     public function contact()
     {
-    application::$app->router->renderView('contact');
+   // application::$app->router->renderView('contact');
     return $this->render('contact');
     }
 

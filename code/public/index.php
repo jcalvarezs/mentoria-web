@@ -15,7 +15,7 @@ $app->router->get('/contact', 'contact');
 $app->router->post('/contact', function(){
     return "Procesando información";
 });//
-$app->router->get('/' [\app\controllers\SiteController::class, home]);
-$app->router->get('/contact' [\app\controllers\SiteController::class, contact]);
-
+$app->router->get('/' , [\app\controllers\SiteController::class, 'home']);
+$app->router->get('/contact', [\app\controllers\SiteController::class, 'contact']);
+$app->router->get('/contact', [\app\controllers\SiteController::class, 'handleContact']);
 $app->run();
