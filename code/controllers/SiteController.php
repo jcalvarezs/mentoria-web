@@ -8,17 +8,17 @@ class SiteController extends Controller
     public function home()
     {
 
-    return $this->render('home');
+        return $this->render('home');
     }
 
     public function contact()
     {
  
-    return $this->render('contact');
+        return $this->render('contact');
     }
 
-    public function handlecontact()
+    public function handleContact()
     {
-    return "Procesando información";
+        return "Procesando información";
     }
 }    
