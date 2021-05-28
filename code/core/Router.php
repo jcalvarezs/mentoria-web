@@ -32,7 +32,8 @@ class Router
        /* var_dump($path);
         var_dump($method);*/
 
-        if ($callback === false){
+        if ($callback === false)
+        {
             //Application::$app->response->setStausCode(404)
             $this->response->setStatusCode(404);
            // return "Not Found";  
@@ -41,24 +42,28 @@ class Router
 
         if (is_string($callback)){
             return $this->renderView($callback);
-
         }
+            /*$callback = array(2) { 
+            [0]=> string(30) "app\Controllers\SiteController" 
+            [1]=> string(4) "home" }*/
+
         if (is_array($callback)){
             $callback[0]=new $callback[0]();
         }    
 
-        return call_user_func($callback);
+        return call_user_func($callback, $this->request);
     }
+
     public function renderContent($viewsContent)
     {
         $layoutContent = $this->layoutContent();    
         return str_replace('{{content}}',$viewsContent,$layoutContent);
     }
 
-    public function renderView($view)
+    public function renderView($view, $params=[])
     {
         $layoutContent = $this->layoutContent();
-        $viewsContent= $this->renderOnlyView($view);
+        $viewsContent= $this->renderOnlyView($view, $params);
     
         return str_replace('{{content}}',$viewsContent,$layoutContent );
 
@@ -70,8 +75,13 @@ class Router
         return ob_get_clean();
     }
 
-    public function renderOnlyView($view)
+    public function renderOnlyView($view, $params)
     {
+        foreach($params as $key => $value){
+             $$key = $value;
+
+        }
+                
         ob_start();
         include_once Application::$ROOT_DIR ."/views/$view.php";
         return ob_get_clean();
