@@ -17,11 +17,11 @@ class Request{
     {
         return strtolower($_SERVER["REQUEST_METHOD"]);
     }
-    public function ispost()
+    public function isPost()
     {
         return $this->getMethod()=== 'post';
     }
-    public function isget()
+    public function isGet()
     {
         return $this->getMethod()=== 'get';
     }
