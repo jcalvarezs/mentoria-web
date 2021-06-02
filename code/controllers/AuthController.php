@@ -7,10 +7,14 @@ use app\core\controllers;
 use app\models\RegisterModel;
 
 namespace app\models;
-class AuthController
+
+use app\core\Controller;
+
+class AuthController extends Controller
 {
     public function login()
     {
+        $this->setlayout('auth');
         return  $this->render('login');
     }
     public function register(Request $request)
@@ -19,7 +23,7 @@ class AuthController
         
         if (request-> isPost()){
             $registerModel = new RegisterModel();
-            return "prosesandoi datos"
+            return "Prosesando Datos"
         }
 
         return  $this->render('registrer');

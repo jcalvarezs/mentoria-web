@@ -5,7 +5,7 @@ namespace app\core;
 
 class Controller
 {
-    public string $layout = 'main'
+    public string $layout = 'main';
     public function render($view, $params = [])
     
     {
