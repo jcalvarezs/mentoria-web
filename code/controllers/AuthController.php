@@ -23,7 +23,7 @@ class AuthController extends Controller
             return "Procesando Datos";
         }
 
-        return  $this->render('registrer');
+        return  $this->render('register');
         
     }
 
