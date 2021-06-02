@@ -3,12 +3,8 @@
 namespace app\controllers;
 
 use app\core\Request;
-use app\core\controllers;
-use app\models\RegisterModel;
-
-namespace app\models;
-
 use app\core\Controller;
+use app\models\RegisterModel;
 
 class AuthController extends Controller
 {
@@ -21,9 +17,10 @@ class AuthController extends Controller
     {
         $this->setlayout('auth');
         
-        if (request-> isPost()){
+        if ($request->isPost())
+        {
             $registerModel = new RegisterModel();
-            return "Prosesando Datos"
+            return "Procesando Datos";
         }
 
         return  $this->render('registrer');
@@ -32,4 +29,3 @@ class AuthController extends Controller
 
 
 }
-public
