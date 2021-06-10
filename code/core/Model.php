@@ -27,13 +27,28 @@ abstract class Model{
             $value = $this->$attribute; 
             foreach($rules as $rule){
                 $rulename = $rule;
+
                 if (!is_string($rulename)){
                     $rulename = $rule[0];
                 }
 
                 if ($rulename === self::RULE_REQUIRED && !$value){
-                    // agregar Error
                     $this->addError($attribute, self::RULE_REQUIRED);
+                }
+
+                if ($rulename === self::RULE_EMAIL && filter_var($value, FILTER_VALIDATE_EMAIL)){
+                    $this->addError($attribute, self::RULE_EMAIL);
+                }
+
+                if ($rulename === self::RULE_MIN && strlen($value) < $rule['min']){
+                    $this->addError($attribute, self::RULE_MIN);
+                }
+                if ($rulename === self::RULE_MAX && strlen($value) < $rule['max']){
+                    $this->addError($attribute, self::RULE_MIN);
+                }
+
+                if ($rulename === self::RULE_MATCH && strlen($value) != $this-> { $rule['match']}){
+                    $this->addError($attribute, self::RULE_MATCH);
                 }
             }
         }
@@ -41,6 +56,10 @@ abstract class Model{
     }
     public function addError($attribute, $rule){
         $message = $this->errorMessages()[$rule] ?? '';
+        foreach ($params as $key =>$params){
+
+            $mesdsage = str_replace("{{$key}}", $params,$menssage);
+        }
 
         $this->errors[$attribute][] = $message;
     }
