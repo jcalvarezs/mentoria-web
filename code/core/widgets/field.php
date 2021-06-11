@@ -31,7 +31,7 @@ class field
             </div>
         </div>
         ' ,
-        $this->model,
+        $this->attribute,
         $this->type,
         $this->attribute,
         $this->model->{$this->attribute},
