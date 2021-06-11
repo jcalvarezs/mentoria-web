@@ -13,7 +13,7 @@ class Form
 
     public static function end()
     {
-        echo '</from>';
+        echo '</form>';
 
     }
 
