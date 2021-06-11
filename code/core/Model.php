@@ -36,11 +36,11 @@ abstract class Model{
 
                 if ($rulename === self::RULE_REQUIRED && !$value){
                     // agregar Error
-                    $this->addError($attribute, self::RULE_REQUIRED);
+                    $this->addError($attribute, self::RULE_REQUIRED, $rule);
                 }
 
                 if ($rulename === self::RULE_EMAIL && !filter_var($value, FILTER_VALIDATE_EMAIL)){
-                    $this->addError($attribute, self::RULE_EMAIL);
+                    $this->addError($attribute, self::RULE_EMAIL, $rule);
                 }
                 
                 if ($rulename === self::RULE_MIN && strlen($value) < $rule['min']){

@@ -1,7 +1,7 @@
 <?php
 namespace app\core\widgets;
 use app\core\Model;
-class field
+class Field
 {
     public const TYPE_TEXT = 'text';
     public const TYPE_MAIL = 'email';
@@ -17,8 +17,8 @@ class field
         $this->type = self::TYPE_TEXT;
 
     }
-            
-    
+      
+
     public function __toString()
     {
         return sprintf('
