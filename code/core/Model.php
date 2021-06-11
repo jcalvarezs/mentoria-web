@@ -7,7 +7,7 @@ namespace app\core;
 
 abstract class Model{
 
-    public const RULE_REQUIRED = 'requered';
+    public const RULE_REQUIRED = 'required';
     public const RULE_EMAIL = 'email';
     public const RULE_MIN = 'min';
     public const RULE_MAX = 'max';
