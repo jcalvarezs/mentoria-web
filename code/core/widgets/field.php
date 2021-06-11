@@ -36,7 +36,7 @@ class field
         $this->attribute,
         $this->model->{$this->attribute},
         $this->model->hasError($this->attribute)? 'is-invalid' : ' ',
-        $this->model->getFirsterror($this->attribute),
+        $this->model->getFirstError($this->attribute)
         );
     }
     
