@@ -1,27 +1,27 @@
 <?php
+
 namespace app\core\widgets;
 use app\core\Model;
-class Form
-{
+
+class Form{
 
     public static function begin($action, $method)
     {
-       // return Sprintf('<form action="%s" method="%s">', $action, $method);
+        //return sprintf('<form action="%s" method="%s">', $action, $method);
         echo sprintf('<form action="%s" method="%s">', $action, $method);
         return new Form();
+
     }
 
     public static function end()
     {
         echo '</form>';
-
     }
-
-    public function field(Model $model, $attribute)
+    
+    public static function field(Model $model, $attribute)
     {
-        return new field($model, $attribute);
+        return new Field($model, $attribute);
 
     }
-
-
+  
 }
