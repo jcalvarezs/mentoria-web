@@ -18,7 +18,7 @@ class Form{
         echo '</form>';
     }
     
-    public static function field(Model $model, $attribute)
+    public static function Field(Model $model, $attribute)
     {
         return new Field($model, $attribute);
 
