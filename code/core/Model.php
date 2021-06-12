@@ -1,5 +1,4 @@
 <?php
-
 namespace app\core;
 
 // self hace referencias a la clase y solo se usa en la clase
@@ -36,11 +35,11 @@ abstract class Model{
 
                 if ($rulename === self::RULE_REQUIRED && !$value){
                     // agregar Error
-                    $this->addError($attribute, self::RULE_REQUIRED, $rule);
+                    $this->addError($attribute, self::RULE_REQUIRED);
                 }
 
                 if ($rulename === self::RULE_EMAIL && !filter_var($value, FILTER_VALIDATE_EMAIL)){
-                    $this->addError($attribute, self::RULE_EMAIL, $rule);
+                    $this->addError($attribute, self::RULE_EMAIL);
                 }
                 
                 if ($rulename === self::RULE_MIN && strlen($value) < $rule['min']){
