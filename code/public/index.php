@@ -1,13 +1,22 @@
 <?php
 
-require_once  __DIR__ .'/../vendor/autoload.php';
+require_once  __DIR__ . '/../vendor/autoload.php';
 
 use app\core\Application;
-//echo __DIR__;
-//echo "<br>";
-//echo dirname(__DIR__);
 
-$app = new Application(dirname(__DIR__));
+$dotenv = Dotenv\Dotenv::createImmutable(dirname(_DIR_));
+$dotenv->load();
+
+$config = [
+
+    'db' =>[
+        'dns' => $_ENV['DNS'],
+        'user' =>$_ENV['USER'],
+        'password' =>$_ENV['PASSWORD'],
+    ]
+];
+
+$app = new Application(dirname(__DIR__), $config);
 
 /*$app->router->get('/', 'home');
 
