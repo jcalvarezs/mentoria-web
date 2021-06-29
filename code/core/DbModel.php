@@ -26,7 +26,7 @@ abstract class DbModel extends Model
         ");
         foreach ($attributes as $attribute)
         {
-            if ($attribute != "id")
+           
             $statement->bindValue(":$attribute", $this->{$attribute} );
                echo ($this->{$attribute}."\n");
                
