@@ -10,9 +10,11 @@ abstract class DbModel extends Model
     abstract public function attributes(): array;
 
     public function save(){
+
         $pdo = Application::$app->db->pdo;
         $tableName = $this-> tableName();
         $attributes = $this->attributes();
+        var_dump($attributes);
         $params = array_map(fn($attr)=> ":$attr", $attributes);
 
        // insert into user (columnas) VALUES (:firstname, ....)
@@ -22,7 +24,8 @@ abstract class DbModel extends Model
             VALUES
             (" . implode(",", $params ) . ")       
         ");
-        foreach ($attributes as $attribute){
+        foreach ($attributes as $attribute)
+        {
             $statement->bindValue(":$attribute", $this->{$attribute} );
                // echo ($this->{$attribute}."\n");
                
