@@ -20,11 +20,12 @@ abstract class DbModel extends Model
         INSERT INTO $tableName
             (" . implode(",", $attributes ) . ")
             VALUES
-            (" . implode(",", $attributes ) . ")       
+            (" . implode(",", $params ) . ")       
         ");
         foreach ($attributes as $attribute){
-            $statement->bindValue(":$attribute", $this->{$attribute} );
-
+            $statement->bindValue(":$attributes", $this->{$attribute} );
+                echo ($this->{$attribute});
+               
         }
         $statement->execute();
         return true;
