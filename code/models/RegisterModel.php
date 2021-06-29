@@ -6,6 +6,7 @@ use app\core\DbModel;
 
 class RegisterModel extends DbModel
 {
+    
     public string $firstname = '';
     public string $lastname = '';
     public string $email = '';
@@ -34,9 +35,8 @@ class RegisterModel extends DbModel
     }
 
     public function attributes(): array
-    {
-       
-        
+    {       
+        $db = \app\core\Application::$app->db; 
         $sql ="SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = 'registro' AND TABLE_NAME = 'users2'";
                 
             $statement = $this->pdo->prepare($sql);
