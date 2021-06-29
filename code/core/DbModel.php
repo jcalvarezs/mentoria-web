@@ -14,7 +14,7 @@ abstract class DbModel extends Model
         $pdo = Application::$app->db->pdo;
         $tableName = $this-> tableName();
         $attributes = $this->attributes();
-        var_dump($attributes);
+        //var_dump($attributes);
         $params = array_map(fn($attr)=> ":$attr", $attributes);
 
        // insert into user (columnas) VALUES (:firstname, ....)
@@ -28,7 +28,7 @@ abstract class DbModel extends Model
         {
            
             $statement->bindValue(":$attribute", $this->{$attribute} );
-               echo ($this->{$attribute}."\n");
+              // echo ($this->{$attribute}."\n");
                
         }
         $statement->execute();
