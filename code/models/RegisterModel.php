@@ -4,6 +4,7 @@ namespace app\models;
 
 use app\core\DbModel;
 
+
 class RegisterModel extends DbModel
 {
     
@@ -35,11 +36,11 @@ class RegisterModel extends DbModel
     }
 
     public function attributes(): array
-    {       
-        $db = \app\core\Application::$app->db; 
+    {     
+        $pdo = \app\core\Application::$app->db->pdo;
         $sql ="SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = 'registro' AND TABLE_NAME = 'users2'";
                 
-            $statement = $this->pdo->prepare($sql);
+            $statement = $pdo->prepare($sql);
             $statement->execute();
     
             return $statement->fetchAll(\PDO::FETCH_COLUMN);
