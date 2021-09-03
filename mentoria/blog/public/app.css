@@ -11,4 +11,6 @@ p{
 
 article {
     border: 1px solid #c5c5c5;
+    margin-top: 2em;
+    padding-top: 2em;
 }

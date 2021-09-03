@@ -1,10 +1,9 @@
 
- @extends('layaout')
+@extends("layout")
+@section("content")
 
-@section('content')
-
-<article>
-       <p><?=$post->body?></p>
-</article>
-<a href="/">Go Back</></a>
+    <article>
+        <p> <?= $post->body ?></p>
+    </article>
+    <a href="/">Go Back</a>
 @endsection
