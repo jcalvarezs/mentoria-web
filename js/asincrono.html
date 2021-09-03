@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id= "trigger-button">Trigger</button>
+    <script>
+        document
+            .getElementById('trigger-button')
+            .addEventListener('click', (event) =>{
+               /* let promise = new Promise((resolve, reject)=>{
+                    setTimeout(()=>{
+                       // resolve('Promesa Ejecutada')
+                       reject('la promesa fallo')
+                    },  500);
+                })
+                console.log(promise)
+
+                promise.then(result =>{
+                    console.log(result)
+                })
+                .catch(err =>{
+                    console.error(err)
+                })*/
+
+               /* fetch("http://mentoria13.segic.cl")
+                .then(res=>res.json())
+                .then(data=>{
+                    console.log(data)
+                })
+                .catch(err =>{
+                    console.info("El terrible error: " + err)
+                })*/
+            
+               /* const loadData = async() => {
+                   const response = fetch("http://mentoria1.segic.cl/")
+                   const todoes = response.json()
+                   console.log(todoes)
+                   todoes.forEach
+                }
+                loadData();*/
+                /*
+                ( async(label) => {
+                    const response =fetch('https://jsonplaceholder.typicode.com/todos/1')
+                    const todo = response.json()
+                    console.log(label + todo.title)
+                })("El Nom")*/
+
+                const loadData =async () =>{
+                    try{
+                    const result = await Promise.all([
+                    fetch('https://jsonplaceholder.typicode.com/todos/1')
+                    fetch('https://jsonplaceholder.typicode.com/todos/2')
+                    fetch('https://jsonplaceholder.typicode.com/todos/3')
+                    ])
+                    const dataPromeses = await result.map(result =>result.json)
+                    const fetchData = await Promise.all(dataPromeses)
+                    
+                    console.log(results)
+
+                } catch(error){
+                    console.error(err)
+                }
+                loadData().then(json =>[
+                    json.forEach(todo=>{
+                            console.log(todo.title)
+                    })
+                ]
+            }
+
+            })    
+
+    </script>
+
+</body>
+</html>
