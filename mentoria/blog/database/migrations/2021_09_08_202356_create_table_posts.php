@@ -21,7 +21,8 @@ class CreateTablePosts extends Migration
             $table->text('resumen');
             $table->text('body');
             $table->timestamps();
-            $table->timestamps('published_at')->nullable();
+        
+            $table->timestamp('published_at')->nullable();
         });
     }
 
