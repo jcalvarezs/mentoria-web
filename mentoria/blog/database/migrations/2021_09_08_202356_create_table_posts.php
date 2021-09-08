@@ -19,8 +19,8 @@ class CreateTablePosts extends Migration
             $table->id();
             $table->string('title');
             $table->text('resumen');
-            $table->text('body');
             $table->timestamps();
+            $table->text('body');
             $table->timestamps('published_at')->nullable();
         });
     }
