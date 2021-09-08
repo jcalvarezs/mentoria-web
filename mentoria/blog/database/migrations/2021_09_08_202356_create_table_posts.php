@@ -11,11 +11,7 @@ class CreateTablePosts extends Migration
      *
      * @return void
      */
-    public string $title;
-    public string $resumen;
-    public string $date;
-    public string $slug;
-    public String $body;
+
 
     public function up()
     {
