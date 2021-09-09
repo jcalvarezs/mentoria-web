@@ -1,9 +1,8 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use App\Models\Post;
 use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,45 +15,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 
+Route::get('/', function () {    
+    $posts = Post::all();
 
-
-Route::get('/', function () {
-    // $posts = cache()->rememberForever('posts.all', fn() =>Post::all());
-    $posts = Post::all(); 
-    return view('posts',[
+    return view ('posts', [
         'posts' => $posts
     ]);
 });
 
 Route::get('/post/{post}', function (Post $post) {
-    return view('post', [
-        'post' => $post, 
+    return view ('post', [
+        'post' => $post,
     ]);
 });
-
-
-  /* foreach ($files as $file ){
-
-        $document= YamlFrontMatter::parseFile($file);
-        $posts[] = new Post(
-            $document->title,
-            $document->resumen,
-            $document->date,
-            $document->body()
-        );
-    }*/
-
-   /* $posts = array_map(function($file){
-        $document= YamlFrontMatter::parseFile($file);
-    return new Post(
-        $document->title,
-        $document->resumen,
-        $document->date,
-        $document->body()
-    );
-   
-    },$files);*/
-//Route::get('/', fn () => view('welcome'));
-
-//Route::get('/', fn () => 'Hola Segic');
-//Route::get('/', fn () => ['ID' => 7, 'url' => 'http://www.segic.cl']);
