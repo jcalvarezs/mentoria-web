@@ -1,9 +1,5 @@
 @extends('layout')
 
-@section('banner')
-    <h1>El super blog</h1>
-@endsection
-
 @section('content')
 
     @if (count($posts) > 0)
