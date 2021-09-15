@@ -22,7 +22,7 @@ Route::get('/', function () {
 
     });
     
-    $posts = Post::all();
+   
 
     return view ('posts', [
         'posts' => :: with ('category')->get()
