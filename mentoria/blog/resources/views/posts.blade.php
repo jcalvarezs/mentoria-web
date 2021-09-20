@@ -1,5 +1,10 @@
 @extends('layout')
 
+@section('banner')
+<h1> El Super Blog </h1>
+@endsection
+
+
 @section('content')
 
     @if (count($posts) > 0)
@@ -11,7 +16,8 @@
                     </a>
                 </h1>
                 <p>
-                <a href="/category/{{$post->category->slug}}">
+                    by<a href="#"> Juan Perez</a> in
+                    <a href="/category/{{$post->category->slug}}">
                     {{$post->category->name}}
                 </a>    
                 <p><?= $post->resumen?></p>
