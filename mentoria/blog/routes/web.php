@@ -21,11 +21,10 @@ Route::get('/', function () {
         logger($query->sql,  $query->bindings);
 
     });
-    
    
 
     return view ('posts', [
-        'posts'=>::with('category')->get()
+        'posts'=>Post::with('category')->get()
     ]);
 });
 

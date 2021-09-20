@@ -11,11 +11,10 @@
                     </a>
                 </h1>
                 <p>
-                    by<a ref="#">Juan Perez</> in
                 <a href="/category/{{$post->category->slug}}">
                     {{$post->category->name}}
                 </a>    
-                <p>{!! $post->resumen !!}</p>
+                <p><?= $post->resumen?></p>
             </article>
         @endforeach
     @else
