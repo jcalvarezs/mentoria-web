@@ -37,7 +37,7 @@ class DatabaseSeeder extends Seeder
             'slug'=>'hobbies'  
         ]);   
         
-         post::create([
+         Post::create([
             'category_id' => $work->id,
             'user_id' => $user->id,
             'slug' => 'my-firt-post',
