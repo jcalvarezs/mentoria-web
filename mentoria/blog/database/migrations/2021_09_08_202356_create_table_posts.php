@@ -15,16 +15,16 @@ class CreateTablePosts extends Migration
 
     public function up()
     {
-        Schema::create('posts', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('category_id'); 
-            $table->foreignId('user_id');         
-            $table->string('slug')->unique();
-            $table->string('title');
-            $table->text('resumen');
-            $table->text('body');
-            $table->timestamps();
-            $table->timestamp('published_at')->nullable();
+            Schema::create('posts', function (Blueprint $table) {
+                $table->id();
+                $table->foreignId('category_id');
+                $table->foreignId('user_id');
+                $table->string('slug')->unique();
+                $table->string('title');
+                $table->text('resumen');
+                $table->text('body');
+                $table->timestamps();
+                $table->timestamp('published->at')->nullable(); 
         });
     }
 
