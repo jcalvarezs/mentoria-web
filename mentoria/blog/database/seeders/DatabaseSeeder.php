@@ -17,34 +17,18 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
-        user::truncate();
+        User::truncate();
         Category::truncate();
-
-        $user=User::factory()->create();
-
-
-        $personal = Category::create([
-            'name'=>'Personal',
-            'slug'=>'personal'
-         ]);     
-
-        $work = Category::create([
-            'name'=>'Work',
-            'slug'=>'work'
-        ]);
-        $hobbies = Category::create([
-            'name'=>'Hobbies',
-            'slug'=>'hobbies'  
-        ]);   
         
-         Post::create([
-            'category_id' => $work->id,
+        $user = User::factory()->create([
+            'name' => 'Juan Perez',
+        ]);
+
+        Post::factory(3)->create([
             'user_id' => $user->id,
-            'slug' => 'my-firt-post',
-            'title' => 'My First Post',
-            'resumen' => 'El pasaje estándar Lorem Ipsum, usado desde el año 1500.',
-            'body' => '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."'
-        ]) ;  
+        ]);
+
+        Post::factory(10)->create();
 
      }
     
