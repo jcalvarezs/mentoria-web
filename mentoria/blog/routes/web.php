@@ -17,10 +17,9 @@ use Illuminate\Support\Facades\File;
 
 
 Route::get('/', function () {  
-    \Illuminate\Support\Facades\DB::listen(function($query){
-        logger($query->sql,  $query->bindings);
-
-    });
+ //   \Illuminate\Support\Facades\DB::listen(function($query){
+ //       logger($query->sql,  $query->bindings);
+ //   });
    
 
     return view('posts', [
