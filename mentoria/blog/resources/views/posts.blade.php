@@ -112,8 +112,10 @@
                                     <div class="ml-3">
                                         <h5 class="font-bold">
                                             <a href="/author/{{$post->user_id}}">
-                                                {{ $post->author->name }}</h5>
+                                                {{ $post->author->name }}
                                             </a>
+                                        </h5>
+                                            
                                         <h6>Mascot at SEGIC</h6>
                                     </div>
                                 </div>
