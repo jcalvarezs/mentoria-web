@@ -1,3 +1,3 @@
-<x-layout >
-    Hola Segic estoy usando la varriable slot
+<x-layout content="Hola SEGIC" >
+   
 <x-layout >
