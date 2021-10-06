@@ -1,5 +1,5 @@
-<x-layout content="Hola SEGIC!">
+<x-layout>
    <x-slot name = "content">
-       Hola egic!!!!
-       <x-slot>
+       Hola Segic!!!!
+</x-slot>
 </x-layout>
