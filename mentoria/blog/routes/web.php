@@ -37,7 +37,7 @@ Route::get('/post/{post}', function (Post $post) {
 });
 
 Route::get('/category/{category:slug}', function (Category $category) {
-    return view ('posts', [
+    return view ('categories', [
         'posts' => $category->posts->load(['category', 'author']),
     ]);
 });
