@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\Post;
+use App\Models\User;
 use App\Models\Category;
 use Illuminate\Support\Facades\File;
 /*
@@ -41,7 +42,7 @@ Route::get('/category/{category:slug}', function (Category $category) {
     ]);
 });
 
-Route::get('/author/{author:slug}', function (user $author) {
+Route::get('/author/{author}', function (User $author) {
     return view ('posts', [
         'posts' => $author->posts->load(['category', 'author']),
     ]);
