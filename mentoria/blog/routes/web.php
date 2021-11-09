@@ -23,20 +23,21 @@ Route::get('/', function () {
 
 
     if (request('search')){
-        $posts->where('title','like', '%' .request ('search') . '%');
+        $posts->where('title','like', '%' .request ('search') . '%')
+        ->orWhere('resumen','like', '%' .request ('search') . '%');
     }
 
     return view('posts', [
         'posts' => $posts->get(),
         'categories' => Category::all(),
     ]);
-});
+})->name('home');
 
 Route::get('/post/{post}', function (Post $post) {
     return view ('post', [
         'post' => $post,
     ]);
-})->name('home');
+});
 
 Route::get('/category/{category:slug}', function (Category $category) {
     return view ('categories', [
