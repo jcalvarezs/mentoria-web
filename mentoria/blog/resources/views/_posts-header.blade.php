@@ -19,7 +19,7 @@
                     <button class="py-2 pl-3 pr-9 text-sm font-semibold lg:w-32 w-full lg:inline-flex"> 
                         {{isset($currentCategory) ? ucwords($currentCategory->name) : 'categories'}}
                         
-                        <x-solt name='arrow' >
+                        <x-icon :name= "down-arrow"class="absulute pointer-events-none" style="right: 12px;" />
                     
                     </button>
                 </x-solt>
