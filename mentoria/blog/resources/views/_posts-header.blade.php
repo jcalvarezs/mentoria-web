@@ -14,7 +14,7 @@
         <!--  Category -->
 
         <div class="relative lg:inline-flex items-center bg-gray-100 rounded-xl">
-            <x-dropdow>
+            <x-dropdown>
                 <x-solt name='trigger' >
                     <button class="py-2 pl-3 pr-9 text-sm font-semibold lg:w-32 w-full lg:inline-flex"> 
                         {{isset($currentCategory) ? ucwords($currentCategory->name) : 'categories'}}
@@ -36,7 +36,7 @@
                     </x-dropdown-item>
                  @endforeach
                
-            </x-dropdow>
+            </x-dropdown>
         </div>
 
         <!-- Other Filters -->
