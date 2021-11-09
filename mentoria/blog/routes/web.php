@@ -18,11 +18,17 @@ use Illuminate\Support\Facades\File;
 
 
 Route::get('/', function () {  
+    $posts => Post::latest('published_at')
+                ->with(['category','author'])
+
+
+    if (request('search')){
+        $posts->where('title','like', '%' .request ('search') . '%');
+    }
+
     return view('posts', [
-        'posts' => Post::latest('published_at')
-                       ->with(['category','author'])
-                       ->get(),
-                       'categories' => Category::all(),
+        'posts' => $posts->get(),
+        'categories' => Category::all(),
     ]);
 });
 
