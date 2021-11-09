@@ -25,12 +25,13 @@
                 </x-solt>
 
 
-                <x-dropdown-item href="/" :actived="request()->routeIS('home')">All</x-dropdown-item>
+                <x-dropdown-item href="/" :actived="request()->routeIs('home')">All</x-dropdown-item>
 
                 @foreach ($categories as $category)
                                
-                    <x-dropdown-item href="/category/{{ $category->slug }}" :activate="isset($currentCategory) && $currentCategory->is($category)">
-                        {{ucwords($currentCategory->name)}} 
+                    <x-dropdown-item 
+                    href="/category/{{ $category->slug }}" :activate="isset($currentCategory) && $currentCategory->is($category)"
+                    >{{ucwords($currentCategory->name)}} 
                     </x-dropdown-item>
                  @endforeach
                

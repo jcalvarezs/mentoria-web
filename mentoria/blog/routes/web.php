@@ -18,11 +18,6 @@ use Illuminate\Support\Facades\File;
 
 
 Route::get('/', function () {  
- //   \Illuminate\Support\Facades\DB::listen(function($query){
- //       logger($query->sql,  $query->bindings);
- //   });
-   
-
     return view('posts', [
         'posts' => Post::latest('published_at')
                        ->with(['category','author'])
@@ -35,7 +30,7 @@ Route::get('/post/{post}', function (Post $post) {
     return view ('post', [
         'post' => $post,
     ]);
-});
+})->name('home');
 
 Route::get('/category/{category:slug}', function (Category $category) {
     return view ('categories', [
