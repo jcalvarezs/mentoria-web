@@ -1,10 +1,12 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+
 use App\Models\Post;
 use App\Models\User;
 use App\Models\Category;
-use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
+//use Illuminate\Support\Facades\File;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,39 +19,14 @@ use Illuminate\Support\Facades\File;
 */
 
 
-Route::get('/', function () {  
-    $posts = Post::latest('published_at')
-                ->with(['category','author']);
-
-
-    if (request('search')){
-        $posts->where('title','like', '%' .request ('search') . '%')
-        ->orWhere('resumen','like', '%' .request ('search') . '%');
-    }
-
-    return view('posts', [
-        'posts' => $posts->get(),
-        'categories' => Category::all(),
-    ]);
-})->name('home');
-
-Route::get('/post/{post}', function (Post $post) {
-    return view ('post', [
-        'post' => $post,
-    ]);
-});
+Route::get('/', [PostController::class, 'index'])->name('home');
+Route::get('/post/{post}', [PostController::class, 'show']);
 
 Route::get('/category/{category:slug}', function (Category $category) {
     return view ('categories', [
         'posts' => $category->posts->load(['category', 'author']),
         'categories' => Category::all(),
         'currentCategory' =>$category,
-
-        /*'posts' =>  Post::join('categories','categories.id','=','posts.category_id')
-                    ->where('posts.category_id',  $category->id)
-                    ->latest('published_at')
-                    ->with(['category','author'])
-                    ->get()*/
     ]);
 });
 
