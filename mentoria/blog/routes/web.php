@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\File;
 
 Route::get('/', function () {  
     $posts = Post::latest('published_at')
-                ->with(['category','author'])
+                ->with(['category','author']);
 
 
     if (request('search')){
