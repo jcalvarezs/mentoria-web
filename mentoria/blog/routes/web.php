@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\File;
 
 
 Route::get('/', function () {  
-    $posts => Post::latest('published_at')
+    $posts = Post::latest('published_at')
                 ->with(['category','author'])
 
 
